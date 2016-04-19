@@ -1,0 +1,1099 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+	<model name="jeeves">
+		<static>false</static>
+
+		<link name='chassis'>
+			<pose>0 0 .4 0 0 0</pose>
+
+			<inertial>
+				<mass>40.0</mass>
+				<pose>-0.1 0 -0.3 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+
+			<collision name='collision'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1.1 0.7 1.0</size>
+					</box>
+				</geometry>
+			</collision>	
+			<visual name='base_top'>
+				<pose>0 0 0.8 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.45 0.7 0.02</size>
+					</box>
+				</geometry>				
+			</visual>
+			<visual name="leg_visual">
+				<pose>0 0 0.5 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.1 0.4 0.6</size>
+					</box>
+				</geometry>
+			</visual>
+			<visual name='base_bottom_top'>
+				<pose>0 0 0.15 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1.1 0.7 0.08</size>
+					</box>
+				</geometry>				
+			</visual>			
+			<visual name='base_bottom_mid'>
+				<pose>0 0 -0.08 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.7 0.6 0.4</size>
+					</box>
+				</geometry>				
+			</visual>
+			<visual name='base_bottom_bottom'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1.1 0.7 0.08</size>
+					</box>
+				</geometry>				
+			</visual>		
+
+			<!--<collision name='caster_collision'>
+				<pose>-0.3 0 -0.125 0 0 0</pose>
+				<geometry>
+					<sphere>
+						<radius>.125</radius>
+					</sphere>
+				</geometry>
+
+				<surface>
+					<friction>
+						<ode>
+							<mu>0</mu>
+							<mu2>0</mu2>
+							<slip1>1.0</slip1>
+							<slip2>1.0</slip2>
+						</ode>
+					</friction>
+				</surface>
+			</collision>
+
+			<visual name='caster_visual'>
+				<pose>-0.3 0 -0.125 0 0 0</pose>
+				<geometry>
+					<sphere>
+						<radius>.125</radius>
+					</sphere>
+				</geometry>
+			</visual>-->
+		</link>
+
+		<link name="torso">
+			<pose>0 0 2.05 0 0 0</pose>
+			<!-- Inertia -->
+			<inertial>
+				<mass>20.0</mass>
+				<pose>-0.1 0 -0.3 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+
+			<!-- Collision -->
+			<collision name='collision'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.47 0.7 1.23</size>
+					</box>
+					<box>
+						<size>0.27 0.2 2.23</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+
+			<!-- Parts -->
+			<visual name='torso_neck'>
+				<pose>0 0 0.35 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.1 0.16 0.7</size>
+					</box>
+				</geometry>				
+			</visual>		
+			<visual name='torso_top'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.45 0.7 0.02</size>
+					</box>
+				</geometry>				
+			</visual>			
+		</link>
+
+		<!-- Linear actuators -->
+
+		<link name="linearbase_front_left">
+			<pose>0.18 0.3 1.22 0 0 0</pose>
+			<visual name='torso_linactbase_front_left'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.08 0.08 0.4</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="linearbase_front_right">
+			<pose>0.18 -0.3 1.22 0 0 0</pose>
+			<visual name='torso_linactbase_front_right'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.08 0.08 0.4</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="linearbase_back_left">
+			<pose>-0.18 0.3 1.22 0 0 0</pose>
+			<visual name='torso_linactbase_back_left'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.08 0.08 0.4</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="linearbase_back_right">
+			<pose>-0.18 -0.3 1.22 0 0 0</pose>
+			<visual name='torso_linactbase_back_right'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.08 0.08 0.4</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="linear_front_left">
+			<pose>0.18 0.3 1.6 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.06 0.06 0.5</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="linear_front_right">
+			<pose>0.18 -0.3 1.6 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.06 0.06 0.5</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="linear_back_left">
+			<pose>-0.18 0.3 1.6 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.06 0.06 0.5</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="linear_back_right">
+			<pose>-0.18 -0.3 1.6 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.06 0.06 0.5</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="toplink_front_left">
+			<pose>0.18 0.3 2.1 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0 0 0</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="toplink_front_right">
+			<pose>0.18 -0.3 2.1 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0 0 0</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="toplink_back_left">
+			<pose>-0.18 0.3 2.1 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0 0 0</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="toplink_back_right">
+			<pose>-0.18 -0.3 2.1 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0.2 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0 0 0</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<!-- Left arm -->
+		<link name="left_shoulder_yaw">
+			<pose>0 0.26 2.12 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.11 0.22 0.12</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="left_shoulder_roll">
+			<pose>0 0.32 2.18 0 0 0</pose>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<visual name='visual'>
+				<pose>0 0 0.11 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.22</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="left_shoulder_link">
+			<pose>0 0.32 2.35 0 0 0</pose>
+			<visual name='left_shoulder_link1'>
+				<pose>0.06 0.03 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.02 0.16 0.08</size>
+					</box>					
+				</geometry>
+			</visual>
+			<visual name='left_shoulder_link2'>
+				<pose>0.12 0.1 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.12 0.02 0.08</size>
+					</box>
+				</geometry>
+			</visual>
+		</link>
+		<link name="left_shoulder_pitch">
+			<self_collide>true</self_collide>
+			<pose>0.16 0.48 2.35 0 0 0</pose>
+			<inertial>
+				<mass>10.0</mass>
+				<pose>-0.1 0 -0.3 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>
+				<surface>
+		            <friction>
+		              <ode>
+		                <mu>0.5</mu>
+		                <mu2>0.2</mu2>
+		                <fdir1>1.0 0 0</fdir1>
+		                <slip1>0</slip1>
+		                <slip2>0</slip2>
+		              </ode>
+		            </friction>
+		            <bounce>
+		              <restitution_coefficient>0</restitution_coefficient>
+		              <threshold>1000000.0</threshold>
+		            </bounce>
+		            <contact>
+		              <ode>
+		                <soft_cfm>0</soft_cfm>
+		                <kp>1e15</kp>
+		                <kd>1e13</kd>
+		                <max_vel>100.0</max_vel>
+		                <min_depth>0.0001</min_depth>
+		              </ode>
+		            </contact>
+		          </surface>
+			</collision>	
+			<visual name='visual'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<!-- Right arm -->
+		<link name="right_shoulder_yaw">
+			<pose>0 -0.26 2.12 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.11 0.2 0.12</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="right_shoulder_roll">
+			<pose>0 -0.32 2.18 0 0 0</pose>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<visual name='visual'>
+				<pose>0 0 0.11 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.22</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="right_shoulder_link">
+			<pose>0 -0.32 2.35 0 0 0</pose>
+			<visual name='right_shoulder_link1'>
+				<pose>0.06 -0.03 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.02 0.16 0.08</size>
+					</box>					
+				</geometry>
+			</visual>
+			<visual name='right_shoulder_link2'>
+				<pose>0.12 -0.1 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.12 0.02 0.08</size>
+					</box>
+				</geometry>
+			</visual>
+		</link>
+		<link name="right_shoulder_pitch">
+			<self_collide>true</self_collide>
+			<pose>0.16 -0.48 2.35 0 0 0</pose>
+			<inertial>
+				<mass>10.0</mass>
+				<pose>-0.1 0 -0.3 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>
+				<surface>
+		            <friction>
+		              <ode>
+		                <mu>0.5</mu>
+		                <mu2>0.2</mu2>
+		                <fdir1>1.0 0 0</fdir1>
+		                <slip1>0</slip1>
+		                <slip2>0</slip2>
+		              </ode>
+		            </friction>
+		            <bounce>
+		              <restitution_coefficient>0</restitution_coefficient>
+		              <threshold>1000000.0</threshold>
+		            </bounce>
+		            <contact>
+		              <ode>
+		                <soft_cfm>0</soft_cfm>
+		                <kp>1e15</kp>
+		                <kd>1e13</kd>
+		                <max_vel>100.0</max_vel>
+		                <min_depth>0.0001</min_depth>
+		              </ode>
+		            </contact>
+		          </surface>
+			</collision>	
+			<visual name='right_shoulder_pitch'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<!-- head/face -->
+		<link name="neck_yawroll">
+			<pose>0 0 2.8 0 0 0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0.1 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.22 0.15 0.15</size>
+					</box>
+				</geometry>
+			</collision>
+			<visual name='visual'>
+				<pose>0.1 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.22 0.15 0.15</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="face">
+			<pose>0.15 0 2.8 0 0 0</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0.05 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.05 0.25 0.4</size>
+					</box>
+				</geometry>
+			</collision>
+			<visual name='visual'>
+				<pose>0.05 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.05 0.25 0.4</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="front_left_wheel">
+			<pose>0.4 0.4 0.2 0 1.5707 1.5707</pose>
+			<collision name="collision">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</collision>
+			<visual name="visual">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<link name="front_right_wheel">
+			<pose>0.4 -0.4 0.2 0 1.5707 1.5707</pose>
+			<collision name="collision">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</collision>
+			<visual name="visual">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<link name="back_left_wheel">
+			<pose>-0.4 0.4 0.2 0 1.5707 1.5707</pose>
+			<collision name="collision">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</collision>
+			<visual name="visual">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<link name="back_right_wheel">
+			<pose>-0.4 -0.4 0.2 0 1.5707 1.5707</pose>
+			<collision name="collision">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</collision>
+			<visual name="visual">
+				<geometry>
+					<cylinder>
+						<radius>.2</radius>
+						<length>.1</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<joint type="revolute" name="front_left_wheel_hinge">
+			<pose>0 0 -0.03 0 0 0</pose>
+			<child>front_left_wheel</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="front_right_wheel_hinge">
+			<pose>0 0 0.03 0 0 0</pose>
+			<child>front_right_wheel</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="back_left_wheel_hinge">
+			<pose>0 0 -0.03 0 0 0</pose>
+			<child>back_left_wheel</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="back_right_wheel_hinge">
+			<pose>0 0 0.03 0 0 0</pose>
+			<child>back_right_wheel</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<!-- Left shoulder joints -->
+		<joint type="revolute" name="left_shoulder_yaw_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>left_shoulder_yaw</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="left_shoulder_yaw_joint">
+			<pose>0 0 -0.11 0 0 0 </pose>
+			<child>left_shoulder_roll</child>
+			<parent>left_shoulder_yaw</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>1.0</upper>
+		        </limit>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_shoulder_rolljoint">
+			<pose>0 0 0 0 0 0 </pose>
+			<child>left_shoulder_link</child>
+			<parent>left_shoulder_roll</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.00000</friction>
+		        </dynamics>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+		<!-- END of left shoulder joints -->
+
+		<!-- Right shoulder joints -->
+		<joint type="revolute" name="left_shoulder_pitchjoint">
+			<pose>0 0 0 0 0 0 </pose>
+			<child>left_shoulder_pitch</child>
+			<parent>left_shoulder_link</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_yaw_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_shoulder_yaw</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_yaw_joint">
+			<pose>0 0 -0.11 0 0 0</pose>
+			<child>right_shoulder_roll</child>
+			<parent>right_shoulder_yaw</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>1.0</upper>
+		        </limit>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_rolljoint">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_shoulder_link</child>
+			<parent>right_shoulder_roll</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_pitchjoint">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_shoulder_pitch</child>
+			<parent>right_shoulder_link</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+		<!-- END of right shoulder joints -->
+
+		<!-- joints for base of linear actuators (not movable) -->
+		<joint type="revolute" name="linearbase_front_left_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linearbase_front_left</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="linearbase_front_right_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linearbase_front_right</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="linearbase_back_left_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linearbase_back_left</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="linearbase_back_right_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linearbase_back_right</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<!-- END of joints for base of linear actuators (not movable) -->
+
+		<joint type="prismatic" name="linear_front_left">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linear_front_left</child>
+			<parent>linearbase_front_left</parent>
+			<axis>
+		        <dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>0.1</upper>
+		        </limit>
+		        <xyz>0 0 1</xyz>
+		      </axis>
+		      <physics>
+		          <ode>
+		            <cfm>0.0</cfm>
+		            <bounce>0.0</bounce>
+		            <max_force>1000.0</max_force>
+		            <velocity>0.0</velocity>
+		            <fudge_factor>0.0</fudge_factor>
+		            <limit>
+		              <cfm>0.0</cfm>
+		              <erp>0.2</erp>
+		            </limit>
+		            <!--<suspension cfm="0.0" erp="0.2"/>-->
+		          </ode>
+		        </physics>
+		</joint>
+		<joint type="prismatic" name="linear_front_right">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linear_front_right</child>
+			<parent>linearbase_front_right</parent>
+			<axis>
+		        <dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>0.1</upper>
+		        </limit>
+		        <xyz>0 0 1</xyz>
+		      </axis>
+		      <physics>
+		          <ode>
+		            <cfm>0.0</cfm>
+		            <bounce>0.0</bounce>
+		            <max_force>1000.0</max_force>
+		            <velocity>0.0</velocity>
+		            <fudge_factor>0.0</fudge_factor>
+		            <limit>
+		              <cfm>0.0</cfm>
+		              <erp>0.2</erp>
+		            </limit>
+		            <!--<suspension cfm="0.0" erp="0.2"/>-->
+		          </ode>
+		        </physics>
+		</joint>
+		<joint type="prismatic" name="linear_back_left">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linear_back_left</child>
+			<parent>linearbase_back_left</parent>
+			<axis>
+		        <!-- <dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics> -->
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>0.1</upper>
+		        </limit>
+		        <xyz>0 0 1</xyz>
+		      </axis>
+		      <physics>
+		          <ode>
+		            <cfm>0.0</cfm>
+		            <bounce>0.0</bounce>
+		            <max_force>1000.0</max_force>
+		            <velocity>0.0</velocity>
+		            <fudge_factor>0.0</fudge_factor>
+		            <limit>
+		              <cfm>0.0</cfm>
+		              <erp>0.2</erp>
+		            </limit>
+		            <!--<suspension cfm="0.0" erp="0.2"/>-->
+		          </ode>
+		        </physics>
+		</joint>
+		<joint type="prismatic" name="linear_back_right">
+			<pose>0 0 0 0 0 0</pose>
+			<child>linear_back_right</child>
+			<parent>linearbase_back_right</parent>
+			<axis>
+		        <!-- <dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics> -->
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>0.1</upper>
+		        </limit>
+		        <xyz>0 0 1</xyz>
+		      </axis>
+		      <physics>
+		          <ode>
+		            <cfm>0.0</cfm>
+		            <bounce>0.0</bounce>
+		            <max_force>1000.0</max_force>
+		            <velocity>0.0</velocity>
+		            <fudge_factor>0.0</fudge_factor>
+		            <limit>
+		              <cfm>0.0</cfm>
+		              <erp>0.2</erp>
+		            </limit>
+		            <!--<suspension cfm="0.0" erp="0.2"/>-->
+		          </ode>
+		        </physics>
+		</joint>
+
+		<!-- NECK JOINT -->
+		<joint type="revolute" name="neck">
+			<pose>0 0 0 0 0 0</pose>
+			<child>neck_yawroll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>1 0 1</xyz>
+			</axis>
+		</joint>
+		<joint type="revolute" name="face">
+			<pose>0 0 0 0 0 0</pose>
+			<child>face</child>
+			<parent>neck_yawroll</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="toplink_front_left_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_front_left</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="toplink_front_right_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_front_right</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="toplink_back_left_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_back_left</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="toplink_back_right_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_back_right</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="toplink_front_left_mount2">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_front_left</child>
+			<parent>linear_front_left</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="toplink_front_right_mount2">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_front_right</child>
+			<parent>linear_front_right</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="toplink_back_left_mount2">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_back_left</child>
+			<parent>linear_back_left</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="toplink_back_right_mount2">
+			<pose>0 0 0 0 0 0</pose>
+			<child>toplink_back_right</child>
+			<parent>linear_back_right</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+
+		<include>
+			<uri>model://camera</uri>
+			<pose>0.25 0 0.55 0 0 0</pose>
+		</include>
+		<joint name="camera_joint" type="revolute">
+			<child>camera::link</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+	</model>
+</sdf>
