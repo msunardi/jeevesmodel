@@ -1,0 +1,1577 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+	<model name="jimmy">
+		<static>false</static>
+
+
+		<link name="torso">
+			<pose>0 0 1.5 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<!-- Inertia -->
+			<inertial>
+				<mass>20.0</mass>
+				<pose>-0.1 0 -0.3 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+
+			<!-- Collision -->
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.36 0.54 0.63</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+
+			<!-- Parts -->
+			
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.36 0.54 0.63</size>
+					</box>
+				</geometry>				
+			</visual>			
+		</link>
+
+		
+		<!-- Left arm -->
+		<link name="left_shoulder_roll">
+			<pose>0 0.55 1.71 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.24 0.16</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.24 0.16</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="left_elbow">
+			<pose>0 0.96 1.71 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.44 0.2</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.44 0.2</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+<!-- 		<link name="left_shoulder_pitch">
+			<self_collide>true</self_collide>
+			<pose>0.16 0.48 0.66 0 0 0</pose>
+			<inertial>
+				<mass>10.0</mass>
+				<pose>-0.1 0 -0.3 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>
+				<surface>
+		            <friction>
+		              <ode>
+		                <mu>0.5</mu>
+		                <mu2>0.2</mu2>
+		                <fdir1>1.0 0 0</fdir1>
+		                <slip1>0</slip1>
+		                <slip2>0</slip2>
+		              </ode>
+		            </friction>
+		            <bounce>
+		              <restitution_coefficient>0</restitution_coefficient>
+		              <threshold>1000000.0</threshold>
+		            </bounce>
+		            <contact>
+		              <ode>
+		                <soft_cfm>0</soft_cfm>
+		                <kp>1e15</kp>
+		                <kd>1e13</kd>
+		                <max_vel>100.0</max_vel>
+		                <min_depth>0.0001</min_depth>
+		              </ode>
+		            </contact>
+		          </surface>
+			</collision>	
+			<visual name='visual'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link> -->
+
+		<!-- Right arm -->
+		<link name="right_shoulder_roll">
+			<pose>0 -0.55 1.71 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.24 0.16</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.24 0.16</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="right_elbow">
+			<pose>0 -0.96 1.71 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.44 0.2</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.44 0.2</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<!-- <link name="right_shoulder_pitch">
+			<self_collide>true</self_collide>
+			<pose>0.16 -0.48 0.66 0 0 0</pose>
+			<inertial>
+				<mass>10.0</mass>
+				<pose>-0.1 0 -0.3 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>
+				<surface>
+		            <friction>
+		              <ode>
+		                <mu>0.5</mu>
+		                <mu2>0.2</mu2>
+		                <fdir1>1.0 0 0</fdir1>
+		                <slip1>0</slip1>
+		                <slip2>0</slip2>
+		              </ode>
+		            </friction>
+		            <bounce>
+		              <restitution_coefficient>0</restitution_coefficient>
+		              <threshold>1000000.0</threshold>
+		            </bounce>
+		            <contact>
+		              <ode>
+		                <soft_cfm>0</soft_cfm>
+		                <kp>1e15</kp>
+		                <kd>1e13</kd>
+		                <max_vel>100.0</max_vel>
+		                <min_depth>0.0001</min_depth>
+		              </ode>
+		            </contact>
+		          </surface>
+			</collision>	
+			<visual name='right_shoulder_pitch'>
+				<pose>0 0 -0.25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.09 0.09 0.6</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link> -->
+
+		<link name="right_hip_roll">
+			<pose>-0.105 -0.18 1.05 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.16 0.24</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.16 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="right_hip_pitch">
+			<pose>0.105 -0.18 1.05 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.2 0.24</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.2 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="right_femur">
+			<pose>0.09 -0.18 0.86 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<cylinder>
+						<radius>0.07</radius>
+						<length>0.2</length>
+					</cylinder>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<cylinder>
+						<radius>0.07</radius>
+						<length>0.2</length>
+					</cylinder>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="right_knee">
+			<pose>0.03 -0.18 0.66 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.2 0.16</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.2 0.16</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<!-- <link name="right_ankle_pitch">
+			<pose>0.105 -0.18 0.3 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.2 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="right_ankle_roll">
+			<pose>-0.105 -0.18 0.3 0 0 0</pose>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.16 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link> -->
+		<link name="right_ankle_pitch_roll">
+			<pose>-0.03 -0.18 0.3 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.36 0.2 0.24</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.36 0.2 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="right_foot">
+			<pose>0 -0.24 0.03 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.66 0.3 0.03</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.66 0.3 0.03</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="left_hip_roll">
+			<pose>-0.105 0.18 1.05 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.16 0.24</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.16 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="left_hip_pitch">
+			<pose>0.105 0.18 1.05 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.2 0.24</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.2 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="left_femur">
+			<pose>0.09 0.18 0.86 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<cylinder>
+						<radius>0.07</radius>
+						<length>0.2</length>
+					</cylinder>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<cylinder>
+						<radius>0.07</radius>
+						<length>0.2</length>
+					</cylinder>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="left_knee">
+			<pose>0.03 0.18 0.66 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.2 0.16</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.2 0.16</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<!-- <link name="left_ankle_pitch">
+			<pose>0.105 0.18 0.3 0 0 0</pose>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.16 0.2 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="left_ankle_roll">
+			<pose>-0.105 0.18 0.3 0 0 0</pose>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.2 0.16 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link> -->
+		<link name="left_ankle_pitch_roll">
+			<pose>-0.03 0.18 0.3 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.36 0.2 0.24</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.36 0.2 0.24</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<link name="left_foot">
+			<pose>0 0.24 0.03 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.66 0.3 0.03</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.66 0.3 0.03</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+
+		<!-- head/face -->
+		<link name="neck_yaw">
+			<pose>0 0 1.92 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<inertial>
+				<mass>5.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.16 0.2</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision><!-- 
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.16 0.2</size>
+					</box>
+				</geometry>
+			</collision> -->
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.16 0.2</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		<link name="neck_pitch">
+			<pose>0 0 2.16 0 0 0</pose>
+			<self_collide>true</self_collide>
+			<!-- <inertial>
+				<mass>1.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.2 0.16</size>
+					</box>
+				</geometry>
+			</collision> -->
+			<inertial>
+				<mass>1.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.5</ixx>
+					<iyy>1.0</iyy>
+					<izz>0.1</izz>
+				</inertia>
+			</inertial>
+			<collision name='collision'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.2 0.16</size>
+					</box>
+				</geometry>
+				<surface>
+	            <friction>
+	              <ode>
+	                <mu>0.5</mu>
+	                <mu2>0.2</mu2>
+	                <fdir1>1.0 0 0</fdir1>
+	                <slip1>0</slip1>
+	                <slip2>0</slip2>
+	              </ode>
+	            </friction>
+	            <bounce>
+	              <restitution_coefficient>0</restitution_coefficient>
+	              <threshold>1000000.0</threshold>
+	            </bounce>
+	            <contact>
+	              <ode>
+	                <soft_cfm>0</soft_cfm>
+	                <kp>1e15</kp>
+	                <kd>1e13</kd>
+	                <max_vel>100.0</max_vel>
+	                <min_depth>0.0001</min_depth>
+	              </ode>
+	            </contact>
+	          </surface>
+			</collision>
+			<visual name='visual'>
+				<pose>0 0 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.24 0.2 0.16</size>
+					</box>
+				</geometry>				
+			</visual>
+		</link>
+		
+		<!-- JOINTS -->
+
+		<joint type="revolute" name="right_shoulder_pitch_1">
+			<pose>0 0.28 0 0 0 0</pose>
+			<child>right_shoulder_roll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_shoulder_pitch_2">
+			<pose>0 -0.28 0 0 0 0</pose>
+			<child>left_shoulder_roll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_roll_3">
+			<pose>0 0.08 0 0 0 0</pose>
+			<child>right_shoulder_roll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_shoulder_roll_4">
+			<pose>0 -0.08 0 0 0 0</pose>
+			<child>left_shoulder_roll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_elbow_5">
+			<pose>0 0.14 0 0 0 0</pose>
+			<child>right_elbow</child>
+			<parent>right_shoulder_roll</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_elbow_6">
+			<pose>0 -0.14 0 0 0 0</pose>
+			<child>left_elbow</child>
+			<parent>left_shoulder_roll</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_hip_yaw_7">
+			<pose>0 -0.06 0.12 0 0 0</pose>
+			<child>right_hip_pitch</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_hip_yaw_8">
+			<pose>0 0.06 0.12 0 0 0</pose>
+			<child>left_hip_pitch</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_hip_roll_9">
+			<pose>0 0 0.06 0 0 0</pose>
+			<child>right_hip_roll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_hip_roll_10">
+			<pose>0 0 0.06 0 0 0</pose>
+			<child>left_hip_roll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+		<!-- maybe join yaw & roll into one joint? -->
+		
+		<joint type="revolute" name="right_hip_joints">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_hip_pitch</child>
+			<parent>right_hip_roll</parent>
+			<axis>
+				<xyz>1 0 0</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="left_hip_joints">
+			<pose>0 0 0 0 0 0</pose>
+			<child>left_hip_pitch</child>
+			<parent>left_hip_roll</parent>
+			<axis>
+				<xyz>1 0 0</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_hip_pitch_11">
+			<pose>0 0 0.26 0 0 0</pose>
+			<child>right_femur</child>
+			<parent>right_hip_pitch</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_hip_pitch_12">
+			<pose>0 0 0.26 0 0 0</pose>
+			<child>left_femur</child>
+			<parent>left_hip_pitch</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_femur_joints">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_knee</child>
+			<parent>right_femur</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="left_femur_joints">
+			<pose>0 0 0 0 0 0</pose>
+			<child>left_knee</child>
+			<parent>left_femur</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+		<joint type="revolute" name="right_knee_13">
+			<pose>0 0 0.36 0 0 0</pose>
+			<child>right_ankle_pitch_roll</child>
+			<parent>right_knee</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_knee_14">
+			<pose>0 0 0.36 0 0 0</pose>
+			<child>left_ankle_pitch_roll</child>
+			<parent>left_knee</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+		<joint type="revolute" name="right_ankle_pitch_15_17">
+			<pose>0.08 0 0.23 0 0 0</pose>
+			<child>right_foot</child>
+			<parent>right_ankle_pitch_roll</parent>
+			<axis>
+				<xyz>1 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_ankle_pitch_16_18">
+			<pose>0.08 0 0.23 0 0 0</pose>
+			<child>left_foot</child>
+			<parent>left_ankle_pitch_roll</parent>
+			<axis>
+				<xyz>1 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="neck_yaw_19">
+			<pose>0.08 0 0 0 0 0</pose>
+			<child>neck_yaw</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="neck_pitch_20">
+			<pose>0.08 0 0 0 0 0</pose>
+			<child>neck_pitch</child>
+			<parent>neck_yaw</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_shoulder_yaw_joint">
+			<pose>0 0 -0.11 0 0 0 </pose>
+			<child>left_shoulder_roll</child>
+			<parent>left_shoulder_yaw</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>1.0</upper>
+		        </limit>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="left_shoulder_rolljoint">
+			<pose>0 0 0 0 0 0 </pose>
+			<child>left_shoulder_link</child>
+			<parent>left_shoulder_roll</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.00000</friction>
+		        </dynamics>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+		<!-- END of left shoulder joints -->
+
+		<!-- Right shoulder joints -->
+		<joint type="revolute" name="left_shoulder_pitchjoint">
+			<pose>0 0 0 0 0 0 </pose>
+			<child>left_shoulder_pitch</child>
+			<parent>left_shoulder_link</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_yaw_mount">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_shoulder_yaw</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_yaw_joint">
+			<pose>0 0 -0.11 0 0 0</pose>
+			<child>right_shoulder_roll</child>
+			<parent>right_shoulder_yaw</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+		        <limit>
+		          <lower>0.0</lower>
+		          <upper>1.0</upper>
+		        </limit>
+				<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_rolljoint">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_shoulder_link</child>
+			<parent>right_shoulder_roll</parent>
+			<axis>
+				<dynamics>
+		          <damping>1.000000</damping>
+		          <friction>1.000000</friction>
+		        </dynamics>
+				<xyz>1 0 0</xyz>
+			</axis>
+		</joint>
+
+		<joint type="revolute" name="right_shoulder_pitchjoint">
+			<pose>0 0 0 0 0 0</pose>
+			<child>right_shoulder_pitch</child>
+			<parent>right_shoulder_link</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+		<!-- END of right shoulder joints -->
+
+		<!-- NECK JOINT -->
+		<joint type="revolute" name="neck">
+			<pose>0 0 0 0 0 0</pose>
+			<child>neck_yawroll</child>
+			<parent>torso</parent>
+			<axis>
+				<xyz>1 0 1</xyz>
+			</axis>
+		</joint>
+		<joint type="revolute" name="face">
+			<pose>0 0 0 0 0 0</pose>
+			<child>face</child>
+			<parent>neck_yawroll</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+		
+		<!-- <include>
+			<uri>model://camera</uri>
+			<pose>0.25 0 0.55 0 0 0</pose>
+		</include>
+		<joint name="camera_joint" type="revolute">
+			<child>camera::link</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<upper>0</upper>
+					<lower>0</lower>
+				</limit>
+			</axis>
+		</joint> -->
+	</model>
+</sdf>
